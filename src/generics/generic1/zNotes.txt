@@ -1,0 +1,69 @@
+Generics means parameterized types, The idea is to allow type (Integer, String, … etc., and user-defined types)
+to be a parameter to methods, classes, and interfaces.
+Java Generics is introduced in Java 5 in year 2014 to deal with type-safe objects.
+It makes the code stable by detecting the bugs at compile time.
+Before generics, we can store any type of objects in the collection,
+Now generics force the java programmer to store a specific type of objects.
+ It does not work with primitive data types and only works with objects
+ Each type parameter must have a unique name within its scope. <A,A> wrong
+ if you don't give data type during object creation, then it will be object by default.
+
+ due to backward compatibility, without generics it also works. generics came in 2014.
+
+pros :
+    1. type safe
+    2. No type casting required
+    3. compile time check
+------------------------------------------------------------------------------
+List list = new ArrayList<>();
+list.add(5);
+list.add("rajesh");
+System.out.println(list.get(0));
+System.out.println(list.get(1));
+Note : without generic , we are able to add int and string , and compiler showing no compile time error.
+------------------------------------------------------------------------------------
+List<Integer> list2 = new ArrayList<>();
+list2.add(5);
+list2.add("rajesh");
+Note : with generics, we are required to give the type, so compiler gives compile time error.
+---------------------------------------------------------------------------------------
+1. Creating Generic class : can take any data type :
+ class MyClass<T>{
+    t val;
+    MyClass(T val){
+    this.val = val;
+    }
+}
+MyClass<Integer> obj = new MyClass<>();
+// so, now you can create object of any type, like integer, string, long , anything, just give type at object creation
+--------------------------------------------------------------------------------------------
+2. Creating generic Method : can take any data type :
+The scope of arguments is limited to the method where it is declared. It allows static as well as non-static methods.
+If we don't want the whole class to be parameterized, we can make only methods generic.
+It is optional tell the generic type for methods. like: pair.<int>doSomething(5);
+
+-------------------------------------------------------------------------------------------
+1. A generic class can extend a non-generic class.
+2. A generic class can extend other generic classes, provided it has the same type of parameter.
+3. Non-Generic classes cannot extend generic classes unless the generic class has predefined parameters
+--------------------------------------------------------------------------------------------
+Object class : it is a class which is the parent every other class in java. it the topmost parent.
+we can store , child data type to its parent.
+so , we can store any class data type into  Object type data type.
+cons:  no type check
+       no compile time check
+       typeCasting required everyTime
+----------------------------------------------------------------------------------------------------
+Q. Can i use class level generic to a static method?
+ans : No, static are class level, without creating object, we can call, so we are not giving type.
+    but we can use, method level generic  ofCourse.
+    for static, create generic at method itself.
+    ex : public static void <T> function(T val){ }
+
+
+
+
+
+
+
+

@@ -1,0 +1,23 @@
+if a function accepts a single object Animal, all its child can be passed.
+
+syntax : public static  void randomMethod(Animal animal){    }
+here we can pass, animal , cat , dog , or all that extends animal class.
+
+But , in case of list of animal as parameter,
+By default, Java don't allow List<Parent> to get List<Child>.
+
+syntax : public static void doSomething(List<? extends Animal> animals){    }
+         public static <T extends Animal> void doSomething1(List<T> animals){     }
+
+---------------------------------------------------------------------------
+type erasure : the data types which we give as generic are erased at runtime.
+    data type is only for compile time check.
+
+syntax : System.out.println(animal.getClass().getName());
+    this will give only className , but not the data type.
+
+
+
+
+
+
