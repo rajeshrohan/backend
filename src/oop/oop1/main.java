@@ -1,5 +1,5 @@
-package oop1;
-import oop2.animal;
+package oop.oop1;
+import oop.oop2.animal;
 public class main{
     public static void main(String[] args) {
 

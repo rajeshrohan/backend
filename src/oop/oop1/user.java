@@ -1,4 +1,4 @@
-package oop1;
+package oop.oop1;
 public class user {
     static int id = 10;
     static int name;

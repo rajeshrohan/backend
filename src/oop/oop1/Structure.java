@@ -1,4 +1,4 @@
-package oop1;
+package oop.oop1;
 public class Structure {
     static int l ;
     int b;

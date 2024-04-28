@@ -1,8 +1,10 @@
-package concurrency.PrintNumbers;
+package concurrency.process_thread.PrintNumbers;
 public class Client {
     public static void main(String[] args) {
-        for(int i=0; i<100; i++){
+        for(int i=0; i<=10000; i++){
             PrintNumbers task = new PrintNumbers(i);
+            if(i == 900)    // break
+                System.out.println(i);
             Thread t = new Thread(task);
             t.start();
         }

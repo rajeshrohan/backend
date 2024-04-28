@@ -1,0 +1,62 @@
+Executors & Thread pool
+Callables
+Adder-Subtractor - A sync problem
+
+10 production line, 10 orders / day,  each have 1 task to do
+10 production line, 20 orders/ day, each have 1 task and 1 waiting
+
+Creating more context switch leads to overhead
+-------------------------------------------------------
+Executor Framework : it ensures everyone have a single responsible.
+Executor internally uses thread pool for creating threads.
+dividing the responsibility in 2 parts:
+    client   - What to do  - tell what task to run
+    Executor - How to do   - know best way to run
+    Executor uses thread pool.
+
+Thread Pool : limited no of threads, any task comes stored in a work-Queue.
+    it is a data structure.
+    if a task comes, it will wait till a thread is free.
+    when a thread is free, the task will be assigned a thread to run.
+
+types of Executors :
+
+in a architecture :
+    1. service : going to do something
+    2. client : decide what to do
+
+---------------------------------------------------------
+ExecutorService : 2 types :
+    1. newCachedThreadPool - create as per requirements
+    2. newFixedThreadPool  - fix no of threads
+
+1. ExecutorService ex = Executors.newCachedThreadPool();
+    it keeps creating new threads if there are no free threads.
+    don't use in case of millions of task, here CPU will crash.
+    use in case of less task, and when you want threads to don't wait.
+    we need this, if we want every task to make a progress, not just to wait for a long time.
+
+2. ExecutorService ex = Executors.newFixedThreadPool(10);
+   use in case of smaller no of task.
+   some task will wait to be executed.
+   to minimise the context switch, we use it. i.e. multiple task making progress parallel.
+
+-----------------------------------------------------------------------------------------------
+Callable : runnable + return the Data
+    runnable wants to implement run method
+    callable want to implement run method, it will work on generics
+
+------------------------------------------------------------------------------------------------
+Serialization problem :
+adder : val += i;              subtractor : val -= i;
+step 1 : read val and put in register
+step 2 : perform operation
+step 3 : update the val
+
+same data is shared among both of them, both reads 0 initially,
+then adder do       0 + 1 = 1
+then subtractor do  0 - 1  = -1
+, this is dirty read , problem so final result will be different as expected.
+
+solution : mutex, semaphores, sync methods
+-------------------------------------------------------------------------------------------------

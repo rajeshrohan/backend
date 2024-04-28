@@ -1,4 +1,4 @@
-package oop2;
+package oop.oop2;
 public class animal {
     int l;
     int b;

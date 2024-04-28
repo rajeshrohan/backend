@@ -1,12 +1,12 @@
-package concurrency.PrintNumbers;
-public class PrintNumbers implements Runnable{  //creating a task
+package concurrency.process_thread.PrintNumbers;
+public class PrintNumbers implements Runnable{
     int noToPrint;
     public PrintNumbers(int noToPrint) {
         this.noToPrint = noToPrint;
-    }   @Override
+    }
+    @Override
     public void run() {
         System.out.println("number : "+noToPrint+" thread : "+Thread.currentThread().getName());
     }
-
 }
-//creating a task, which implements Runnable interface and implements run method.
+
