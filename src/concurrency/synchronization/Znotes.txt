@@ -1,0 +1,95 @@
+Synchronisation problem : adding and subtracting concurrently will lead to dirty read.
+solutions :
+    1. Mutex : Mutual Exclusion / Lock
+    2. Synchronized keyword
+    3. Sync Method
+
+Sync issue : it happens when multiple threads wants to modify same object at a time.
+             if only single thread, no sync issue, no critical section.
+
+example :
+    print("hello");
+    val += i;       // critical section different thread
+    print("bye");   //
+    val -= i;       // critical section different thread
+    print("done");
+
+Critical Section : part of the code, where we are working on shared data.
+
+Race Condition : when more than 1 thread tries to enter the critical section at the same time.
+    when two threads kind of race or compete to complete a task.
+
+Preemptiveness : when we move from one task to another task in partial state.
+    when context switch happens, a thread has paused the task.so that other thread can make progress.
+
+-------------------------------------------------------------------------------------------------------
+1. Mutual Exclusion :
+    it allows only one thread to enter the critical section at a time.
+    Shared Lock : if any thread wants to edit the data, first it should lock the shared data,
+    after edit , unlock the shared data.
+
+    we use same lock for multiple threads, otherwise lock will not work.
+Lock : lock is an interface
+ReentrantLock : it is a class which implements the lock interface.
+
+    lock.lock();
+    count.val += i;
+    lock.unlock();
+------------------------------------------------------------------------------------------------------------
+2. synchronized  : Implicit lock for objects that exist in java.
+    it is a keyword that takes a object and lock it and do operations on that object using 1 thread only.
+    works for single line of code.
+ex : here count is a shared data , that is a object, passed to different task running on different thread.
+
+    synchronized(count) {
+        count.val -= i;
+    }
+
+-------------------------------------------------------------------------------------------------------------
+3. synchronized method: we can lock the entire method also.
+    Note : when we use, sync method, lock is taken on the object which calls the sync method.
+    it means when a sync method is modifying the object , then any other method can't modify this object.
+
+    public synchronized void  incrementByX(int x){
+            val += x;
+    }
+
+    only critical sections, which are inside a sync methods are locked , unlocked.
+    but non sync-methods , will continue to execute with multiple threads.
+    non sync-methods will be independent of lock , they don't try to lock or unlock, just they run.
+   Note : sync methods needs lock to execute.
+          normal methods just run .
+
+----------------------------------------------------------------------------------------------------------------
+Producer/consumer problem :
+producer produces only when consumer starts consuming.
+consumer can only consume if there is an item.
+over all the whole platform is shared between them. the shop.
+we have limited no of capacity to store items.
+this is a forever continuous problem. keep producing, keep consuming.
+
+
+store class{
+    maxSize;
+    List<item> items;
+
+    add();
+    remove();
+}
+
+suppose, if empty shelfs are 3, but 4 producers come and read that , we have to produce,
+    so, ultimately they produce , 1 extra , out of capacity
+
+suppose , if shop has 3 items, and 4 consumers come to consume, then at last ,
+ one consumer will not get the item, stock finished.
+
+ soln 1 : using sync keyword or method but
+  but we are allowing only 1 producer to produce at a time
+  only 1 consumer to consume at a time.
+  so, it is not a optimal solution to the problem.
+
+
+
+
+
+
