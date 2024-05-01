@@ -1,0 +1,52 @@
+Leetcode problem 1 :
+Leetcode problem 2 :
+when we solve the producer consumer problem using sync keyword.
+then problem is solved, but we are allowing one producer or 1 consumer only.
+this is now optimised .
+
+we are restricting one at a time only.
+solution: we can allow multiple operations also at a time.
+
+Semaphores : combination of mutex + limit of no of threads.
+            (lock + unlock)   (and allow multiple threads also)
+           semaphores allow produces and consumers to do task parallel.
+
+no of producers : no of empty shelves
+no of consumers : no of actual items at that point of time.
+
+Semaphore s = new Semaphore(1);         takes parameter as no of threads
+acquire() same as lock  -- in consumer
+release()  same as unlock ++ in consumer
+    shared data will be shelves.
+
+if we have same semaphore, then problem arises. if 3 threads.
+ then 3 will produce and 3 will consume too, even if no element in shelves.
+
+we should use one semaphores for 1 task only.
+
+solution :
+Semaphore prodSema = new Semaphore(1);
+Semaphore consSem = new Semaphore(1);
+
+before producing , use producer semaphore.
+
+initiallly consumer = 0;
+acquire++, release --
+
+prodSema.acquire();     // producer
+store.add();
+consSema.release();
+
+
+consSema.acquire();     // consumer
+store.remove();
+proSema.release();
+
+
+whenever multiple threads are modifying items at the same time.
+use concurrent version of list.
+
+not thread safe :
+
+
+practice some question of leetcdoe , like foobar
