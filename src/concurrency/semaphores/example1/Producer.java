@@ -1,4 +1,4 @@
-package concurrency.semaphores;
+package concurrency.semaphores.example1;
 
 import java.util.concurrent.Semaphore;
 
