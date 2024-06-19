@@ -1,0 +1,58 @@
+SOLID principles of object-oriented design :
+S = single responsibility
+O = open/close
+L = liskov substitution
+I = interface segregation
+D = dependency inversion
+----------------------------------------------------------------------------------
+SRP :
+--------
+ It states that a class or module should have only one reason to change,
+ meaning it should have only one job or responsibility.
+ // one class, one responsibility.
+
+objective :
+ to achieve high cohesion, low coupling
+ easy to understand, maintain, scale.
+
+ examples :
+ the Employee class has multiple responsibilities:
+ Managing employee data, Generating a report, Saving employee data.
+
+ the Order class is responsible for:
+ Managing order details, Calculating discounts, Generating invoices, Saving order data.
+
+ the Product class is responsible for:
+ Managing product details, Calculating tax, Updating inventory, Saving product data.
+
+ ----------------------------------------------------------------------------------
+ OCP :
+ ---------
+ Software entities should be open for extension but closed for modification.
+ like classes, modules, functions, etc.
+ // once a code is written don't modify existing code , for adding new features.
+
+ objective :
+  To allow the behavior of a module to be extended without modifying its source code,
+  thereby reducing the risk of introducing new bugs.
+
+  approach :
+  Using inheritance or interfaces
+
+  hint : use abstract(may) base class or Interface(must) .
+
+  Examples :
+  shape class with circle, rectangle type, 1 draw method
+  solution: make shape abstract with draw method, let shape type implement it .
+
+  class Discount, taking discount type, based of type, calculate discount. like std, senior citizen.
+  solution: make a interface discountStrategy, and class std impl it, senior iml it, military imp it.
+
+  payment type as credit card, paypal using type and if else case
+  solution : paymentStrategy as interface , creditCardPayment imp it, upiPayment imp it.
+ --------------------------------------------------------------------------------------
+
+  coercion :
+  the mechanism of converting one type of object to another object of a different type
+  with similar content.
+  the process of converting one data type to another data type

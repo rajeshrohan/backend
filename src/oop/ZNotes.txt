@@ -1,0 +1,4 @@
+Encapsulation restricts access to certain components of an object.
+object.Attribute will not work , if Attribute is private.
+
+abstract class extending class mandatory to implement all abstract methods.

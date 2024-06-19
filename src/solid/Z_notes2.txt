@@ -1,0 +1,56 @@
+  ----------------------------------------------------------------------------------
+  LSP :    (subclass to superclass change reference makes violation)
+  --------
+  It states that objects of a superclass should be replaceable with objects of a subclass
+  without affecting the correctness of the program.
+
+  Objective:
+  To ensure that derived classes can be used interchangeably with their base classes.
+  polymorphism, code reuse, flexibility, and extensibility.
+
+  promote polymorphism : to write more generic and flexible code.
+  Code Reusability     : using superclass ref, can use the behavior defined in the superclass
+       while allowing subclasses to add or override specific behaviors.
+   Flexibility and Extensibility : Using a superclass type allows the program to accommodate
+   new types that extend the superclass without altering the existing code.
+   Encapsulation and Abstraction : Subclassing allows the details of specific implementations to
+   be hidden behind a common interface or base class.
+
+  approach :
+  a base class Bird with a method fly,
+  a subclass Penguin should not override fly in a way that violates the base class's contract.
+  Instead, Penguin should not inherit fly if it cannot fly.
+
+
+  ----------------------------------------------------------------------------------
+  ISP :  (forcing to implement makes violation)
+  --------
+  Clients should not be forced to depend on interfaces they do not use.
+
+ Objective:
+ To create more specific and smaller interfaces rather than a large, monolithic interface,
+ making it easier for clients to implement and reducing the complexity of the system.
+
+ The Interface Segregation Principle is one of the SOLID principles of object-oriented design and
+ states that no client should be forced to implement interfaces it doesn't use.
+ Essentially, this principle suggests creating smaller, more specific interfaces rather than a large, general-purpose interface.
+
+ -----------------------------------------------------------------------------------
+ DIP : (tightly bound makes violation)
+ --------
+ High-level modules should not depend on low-level modules. Both should depend on abstractions.
+ abstractions should not depend on details. Details should depend on abstractions.
+
+ don't make two classes directly dependent on each other, instead dependent by interface.
+
+ Objective:
+ To decouple software modules, making the system more modular and easier to maintain.
+
+ High-level modules should not depend on low-level modules. Both should depend on abstractions.
+ Abstractions should not depend on details. Details should depend on abstractions
+
+ class1 --> class2 should not
+
+ class1 -> interface yes
+
+------------------------------------------------------------------------------------------

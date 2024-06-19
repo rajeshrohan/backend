@@ -1,0 +1,44 @@
+ Association : Aggregation, Composition
+ Inheritance
+ Dependency
+ Realization
+--------------------------------------------------------------------------------------
+Association :
+ two or more objects communicate with each other, but they don't have ownership.
+ ex : teacher , student
+
+Aggregation : 1 way relationship
+    weak bonding, loose coupling
+    A weaker form of association representing a "has-a" relationship.
+    child/part can exist independently without parent.
+    The parts (components) have independent lifetimes.
+    represented using an empty diamond in UML diagrams.
+    Ex : library-book, university-student, team-player, company-projects
+         software development team - projects
+
+ Composition : parent-child relationship
+    strong bonding, tight coupling
+    A stronger form of aggregation representing a "part-of" relationship.
+    child/part cannot exist independently without parent.
+    The parts are dependent on the lifecycle of the whole.
+    represented using a filled diamond in UML diagrams.
+    Ex : house-room, car-engine, computer-cpu, tree-leaves
+         software application - UI components, DBMS-Table, OS-Kernel
+
+--------------------------------------------------------------------------------------
+Inheritance :
+ tight coupling between parent and child.
+ "Is-a" relationship, one class inherits fields and methods of another class.
+  represented by a solid line with a closed, unfilled arrowhead.
+ Ex: Dog, Animal
+
+----------------------------------------------------------------------------------------
+Dependency :
+one class depends on another class for its functionality.
+"uses-a" relationship. change in one might affect the other.
+Ex : car, fuel
+
+-----------------------------------------------------------------------------------------
+Realization :
+a class implements an interface, providing concrete behaviour for the methods of interface.
+

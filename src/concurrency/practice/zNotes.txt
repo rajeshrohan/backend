@@ -1,0 +1,15 @@
+thread.run() , it directly executes the code in the current thread, not in a separate thread.
+thread.start(), it creates a new thread of execution
+
+public void run(){      // task itself creates threads, thread param as new anonymous task.
+        for(int i=0; i<n; i++) {
+            int p = i;
+            Thread t = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    System.out.println(p+1 + " " + Thread.currentThread().getName());
+                }
+            });
+            t.start();
+        }
+}

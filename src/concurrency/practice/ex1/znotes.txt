@@ -1,0 +1,22 @@
+// task : knows to print hello world            client : task, thread, start
+// task : knows to print a character            client : task with param, thread, start
+// task : prints 1 to n with diff thread        client : task with param
+
+public void run(){
+        for(int i=0; i<n; i++) {
+            int p = i;
+            Thread t = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    System.out.println(p+1 + " " + Thread.currentThread().getName());
+                }
+            });
+            t.start();
+        }
+}
+// a task itself creating new threads ,
+// need p variable , to make scope gets same val
+---------------------------------------------------------------------------
+Executor : interface for executing tasks asynchronously.
+Executors : class for creating instances of ExecutorService with different configurations.
+ExecutorService : Interface extends Executor, provides methods for managing the lifecycle of the executor.

@@ -1,4 +1,4 @@
-package concurrency.semaphores.example1;
+package concurrency.semaphores;
 
 import java.util.concurrent.ConcurrentLinkedDeque;
 

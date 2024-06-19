@@ -50,3 +50,11 @@ not thread safe :
 
 
 practice some question of leetcdoe , like foobar
+-----------------------------------------------------------------------------------------
+use case of semaphores :
+1. Producer-Consumer Pattern : multiple threads are producing items (producers) and consuming them (consumers)
+2. Task Queue  : where multiple threads are generating tasks and other threads are processing those tasks.
+3. Event Handling : Multiple threads can enqueue events into the deque, and a separate thread or pool of threads
+    can dequeue and process these events concurrently.
+4. Parallel Processing :  tasks are divided into sub-tasks and executed concurrently on multiple threads or processes,
+   a concurrent deque can be used to store intermediate results or data chunks that need to be processed further.
