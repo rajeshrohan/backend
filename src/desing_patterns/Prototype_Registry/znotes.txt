@@ -1,0 +1,8 @@
+
+Prototype Pattern is a creational design pattern used to create new objects by copying
+an existing object, known as the prototype.
+
+ a method for cloning itself like copy() or clone()
+
+ interface for prototype to implement : clone or copy method
+ interface for registry to implement : get, register, fill
